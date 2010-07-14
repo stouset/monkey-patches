@@ -1,0 +1,19 @@
+= monkey-patches
+
+This is a set of commonly-used extensions to Ruby core classes, implemented
+using the Monkey[http://github.com/stouset/monkey] monkeypatching framework.
+
+== Usage
+
+The easiest way to use monkey-patches is to simply require the whole set of
+patches.
+
+  require 'monkey/patches'
+  
+  Monkey.patch(Array, :blank?) { [].blank? }
+
+Alternatively, you can require patches as-needed.
+
+  require 'monkey/patch/object/metaclass'
+  
+  Monkey.patch(String, :metaclass) { "foo".metaclass }
